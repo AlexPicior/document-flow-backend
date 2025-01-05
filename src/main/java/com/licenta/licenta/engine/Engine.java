@@ -1,17 +1,26 @@
 package com.licenta.licenta.engine;
 
+import com.licenta.licenta.engine.workflow.Workflow;
+import com.licenta.licenta.engine.workflow.creation.WorkflowInstanceCreator;
+import lombok.RequiredArgsConstructor;
+
+import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+@RequiredArgsConstructor
 public class Engine {
     private ExecutorService executorService;
+    private final WorkflowInstanceCreator workflowInstanceCreator;
+
     public void start() {
         executorService = Executors.newVirtualThreadPerTaskExecutor();
-        run();
     }
     public void run() {
         executorService.submit(() -> {
-            System.out.println("Hello, World!");
+            Workflow workflow = workflowInstanceCreator.createWorkflow();
+
+            workflow.start(new HashMap<>());
         });
     }
 }

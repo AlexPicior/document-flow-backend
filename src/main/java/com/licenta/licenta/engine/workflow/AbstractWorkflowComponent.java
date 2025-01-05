@@ -17,7 +17,7 @@ public abstract class AbstractWorkflowComponent implements WorkflowComponent {
         this.next = next;
     }
 
-    private Map<String, Object> executeInternal(Map<String, Object> inputParameters) {
+    protected Map<String, Object> executeInternal(Map<String, Object> inputParameters) {
         return new HashMap<>();
     }
 }
