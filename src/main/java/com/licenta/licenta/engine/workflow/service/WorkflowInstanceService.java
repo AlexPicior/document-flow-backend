@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Service
@@ -27,6 +29,7 @@ public class WorkflowInstanceService {
     private final IWorkflowInstanceCachingService workflowInstanceCachingService;
     private final TriggerKeyRepository triggerKeyRepository;
     private final UserService userService;
+    private ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor();
 
     public void triggerWorkflowInstances(TriggerWorkflowRequestDTO triggerWorkflowRequestDTO) {
         TriggerWorkflowRequestDTO triggerWorkflowRequestForClient = new TriggerWorkflowRequestDTO(triggerWorkflowRequestDTO);
@@ -40,8 +43,8 @@ public class WorkflowInstanceService {
         }
 
         if (!workflowInstances.isEmpty()) {
-            workflowInstances.forEach(workflowInstance -> workflowInstance.start(
-                    getInputParameters(workflowInstance.getStartTask(), triggerWorkflowRequestDTO)));
+            workflowInstances.forEach(workflowInstance -> executorService.submit(() -> workflowInstance.start(
+                    getInputParameters(workflowInstance.getStartTask(), triggerWorkflowRequestDTO))));
         }
     }
 
