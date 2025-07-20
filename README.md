@@ -7,6 +7,23 @@ DocumentFlow is a web platform designed to automate and manage request documents
 The Workflow Modeler allows administrators to visually create and manage workflows using a drag-and-drop interface. They can define who can start a workflow, add predefined components (like approvals or conditional branches) to the diagram, and link them based on execution logic. Each step can be customized with properties and reference names for dynamic behavior.
 <img width="1004" height="531" alt="image" src="https://github.com/user-attachments/assets/cfacc595-c176-4506-88c0-9541b9b9401c" />
 
+### Form Builder
+The Form Builder allows administrators to create and manage multi-page forms through a simple interface. They can add, edit, reorder, or remove fields with various data types (text, number, date, selection, etc.). Fields are added using a "+" button, and selection fields allow custom options. Forms can be structured across multiple pages for better organization.
+<img width="1004" height="592" alt="image" src="https://github.com/user-attachments/assets/7e6e535b-7531-46e8-825e-ba79be20604c" />
+
+### Workflow Interaction
+Users (employees or clients) can start a workflow by submitting a form from the "Send Request" section. After submission, the workflow executes based on its defined logic. Only employees can interact further with others’ workflows.
+
+Employees have access to several key sections:
+ - Approvals: View and respond to approval requests assigned to them with "Approve" or "Reject".
+ - Corrections/Completions: Modify form data when requested, then submit with "Send Reply".
+ - Notifications: Read-only messages or form updates that don’t require a response.
+ - Archive: View or delete past requests (no editing allowed); available only to employees.
+<img width="1004" height="501" alt="image" src="https://github.com/user-attachments/assets/64b718e3-6618-4167-ae37-af9cab12dd71" />
+<img width="1004" height="496" alt="image" src="https://github.com/user-attachments/assets/46e265b3-8a3e-4542-a6e9-0c435c0c4ea7" />
+<img width="1004" height="510" alt="image" src="https://github.com/user-attachments/assets/90b614d9-052e-4b0e-92de-b1164b242a83" />
+<img width="1004" height="499" alt="image" src="https://github.com/user-attachments/assets/b94712dd-5b2e-4d74-875e-31de84313462" />
+<img width="1004" height="497" alt="image" src="https://github.com/user-attachments/assets/4efda6c2-b0fd-435c-8a8d-a8d8578dd667" />
 
 ## Use Case Example
 
